@@ -1,8 +1,7 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package PANTALLAS;
+
+import static PANTALLAS.Pantalla1_JUGAR.frameinstruc;
 
 /**
  *
@@ -26,21 +25,51 @@ public class Pantalla3_MENU extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        Bt_instrucciones = new javax.swing.JToggleButton();
+        Bt_comienzajuego = new javax.swing.JToggleButton();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Bt_instrucciones.setBorderPainted(false);
+        Bt_instrucciones.setContentAreaFilled(false);
+        Bt_instrucciones.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Bt_instruccionesActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Bt_instrucciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 500, 360, 90));
+
+        Bt_comienzajuego.setBorderPainted(false);
+        Bt_comienzajuego.setContentAreaFilled(false);
+        Bt_comienzajuego.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Bt_comienzajuegoActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Bt_comienzajuego, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 500, 360, 90));
+
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Lucia Montoya\\Downloads\\koala\\Menu.png")); // NOI18N
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 800));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void Bt_instruccionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Bt_instruccionesActionPerformed
+        this.setVisible(false);
+        frameinstruc.setVisible(true);
+    }//GEN-LAST:event_Bt_instruccionesActionPerformed
+
+    private void Bt_comienzajuegoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Bt_comienzajuegoActionPerformed
+
+
+    }//GEN-LAST:event_Bt_comienzajuegoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -69,6 +98,8 @@ public class Pantalla3_MENU extends javax.swing.JFrame {
         }
         //</editor-fold>
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -79,5 +110,9 @@ public class Pantalla3_MENU extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JToggleButton Bt_comienzajuego;
+    private javax.swing.JToggleButton Bt_instrucciones;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
