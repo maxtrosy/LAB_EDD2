@@ -4,6 +4,13 @@
  */
 package PANTALLAS;
 
+import java.awt.Font;
+import java.awt.FontFormatException;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Lucia Montoya
@@ -15,6 +22,15 @@ public class Pantalla1_JUGAR extends javax.swing.JFrame {
      */
     public Pantalla1_JUGAR() {
         initComponents();
+        try {
+            File fontStyle = new File("src\\Fuente\\league-spartan\\LeagueSpartan-Bold.otf");
+
+            Font font = Font.createFont(Font.TRUETYPE_FONT, fontStyle).deriveFont(44f);
+            jToggleButton2.setFont((font));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
 
     /**
@@ -33,6 +49,7 @@ public class Pantalla1_JUGAR extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jToggleButton2.setText("Jugar");
         jToggleButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jToggleButton2ActionPerformed(evt);
@@ -40,7 +57,7 @@ public class Pantalla1_JUGAR extends javax.swing.JFrame {
         });
         getContentPane().add(jToggleButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 610, 350, 70));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/JUGAR.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\maxtr\\OneDrive\\Documentos\\GitHub\\EED2LAB\\LAB_EDD2\\src\\IMAGENES\\JUGAR.png")); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -91,6 +108,7 @@ public class Pantalla1_JUGAR extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(Pantalla1_JUGAR.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
