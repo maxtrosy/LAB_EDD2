@@ -4,17 +4,21 @@
  */
 package PANTALLAS;
 
-/**
- *
- * @author Lucia Montoya
- */
-public class Pantalla2_INSTRUCCIONES extends javax.swing.JFrame {
+import static PANTALLAS.Pantalla1_JUGAR.frameinstruc;
+import java.awt.Font;
+import java.io.File;
 
+
+
+public class Pantalla2_INSTRUCCIONES extends javax.swing.JFrame {
+        
+    public static Pantalla3_MENU frameMENU = new Pantalla3_MENU();
     /**
      * Creates new form Pantalla2_INSTRUCCIONES
      */
     public Pantalla2_INSTRUCCIONES() {
-        initComponents();
+               initComponents();
+
     }
 
     /**
@@ -26,25 +30,95 @@ public class Pantalla2_INSTRUCCIONES extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jToggleButton1 = new javax.swing.JToggleButton();
-        jLabel1 = new javax.swing.JLabel();
+        Bt_izq = new javax.swing.JToggleButton();
+        Bt_estudiando = new javax.swing.JToggleButton();
+        Bt_barriendo = new javax.swing.JToggleButton();
+        Bt_reciclando = new javax.swing.JToggleButton();
+        Bt_der = new javax.swing.JToggleButton();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        Bt_izq.setToolTipText("");
+        Bt_izq.setActionCommand("");
+        Bt_izq.setBorderPainted(false);
+        Bt_izq.setContentAreaFilled(false);
+        Bt_izq.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Bt_izqActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Bt_izq, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 640, 80, 90));
 
-        jToggleButton1.setText("jToggleButton1");
-        jPanel1.add(jToggleButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 680, -1, -1));
+        Bt_estudiando.setBorderPainted(false);
+        Bt_estudiando.setContentAreaFilled(false);
+        Bt_estudiando.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Bt_estudiandoActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Bt_estudiando, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 460, 190, 50));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(2294, 0, -1, -1));
+        Bt_barriendo.setBorderPainted(false);
+        Bt_barriendo.setContentAreaFilled(false);
+        Bt_barriendo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Bt_barriendoActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Bt_barriendo, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 460, 190, 50));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/Instrucciones.png"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        Bt_reciclando.setBorderPainted(false);
+        Bt_reciclando.setContentAreaFilled(false);
+        Bt_reciclando.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Bt_reciclandoActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Bt_reciclando, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 460, 190, 50));
+
+        Bt_der.setBorder(null);
+        Bt_der.setBorderPainted(false);
+        Bt_der.setContentAreaFilled(false);
+        Bt_der.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Bt_derActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Bt_der, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 630, 80, 100));
+
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Lucia Montoya\\Downloads\\koala\\Instrucciones.png")); // NOI18N
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 800));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void Bt_derActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Bt_derActionPerformed
+        this.setVisible(false);
+        frameMENU.setVisible(true);
+    }//GEN-LAST:event_Bt_derActionPerformed
+
+    private void Bt_estudiandoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Bt_estudiandoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Bt_estudiandoActionPerformed
+
+    private void Bt_izqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Bt_izqActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Bt_izqActionPerformed
+
+    private void Bt_reciclandoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Bt_reciclandoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Bt_reciclandoActionPerformed
+
+    private void Bt_barriendoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Bt_barriendoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Bt_barriendoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -73,6 +147,8 @@ public class Pantalla2_INSTRUCCIONES extends javax.swing.JFrame {
         }
         //</editor-fold>
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -83,8 +159,12 @@ public class Pantalla2_INSTRUCCIONES extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JToggleButton jToggleButton1;
+    private javax.swing.JToggleButton Bt_barriendo;
+    private javax.swing.JToggleButton Bt_der;
+    private javax.swing.JToggleButton Bt_estudiando;
+    private javax.swing.JToggleButton Bt_izq;
+    private javax.swing.JToggleButton Bt_reciclando;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
 }

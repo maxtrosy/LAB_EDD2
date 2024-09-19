@@ -17,6 +17,8 @@ import javax.swing.JOptionPane;
  */
 public class Pantalla1_JUGAR extends javax.swing.JFrame {
 
+    public static Pantalla2_INSTRUCCIONES frameinstruc = new Pantalla2_INSTRUCCIONES();
+
     /**
      * Creates new form Pantalla1_JUGAR
      */
@@ -25,10 +27,9 @@ public class Pantalla1_JUGAR extends javax.swing.JFrame {
         try {
             File fontStyle = new File("src\\Fuente\\league-spartan\\LeagueSpartan-Bold.otf");
 
-            Font font = Font.createFont(Font.TRUETYPE_FONT, fontStyle).deriveFont(44f);
+            Font font = Font.createFont(Font.TRUETYPE_FONT, fontStyle).deriveFont(60f);
             jToggleButton2.setFont((font));
-            
-            
+
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -51,15 +52,19 @@ public class Pantalla1_JUGAR extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jToggleButton2.setText("Jugar");
+        jToggleButton2.setForeground(new java.awt.Color(255, 255, 255));
+        jToggleButton2.setText("JUGAR");
+        jToggleButton2.setBorder(null);
+        jToggleButton2.setBorderPainted(false);
+        jToggleButton2.setContentAreaFilled(false);
         jToggleButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jToggleButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jToggleButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 610, 350, 70));
+        getContentPane().add(jToggleButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 610, 350, 80));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\maxtr\\OneDrive\\Documentos\\GitHub\\EED2LAB\\LAB_EDD2\\src\\IMAGENES\\JUGAR.png")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Lucia Montoya\\Downloads\\koala\\JUGAR.png")); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -82,7 +87,8 @@ public class Pantalla1_JUGAR extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jToggleButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton2ActionPerformed
-        // TODO add your handling code here:
+        this.setVisible(false);
+        frameinstruc.setVisible(true);
     }//GEN-LAST:event_jToggleButton2ActionPerformed
 
     /**
@@ -110,6 +116,8 @@ public class Pantalla1_JUGAR extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(Pantalla1_JUGAR.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
