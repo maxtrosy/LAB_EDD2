@@ -26,26 +26,28 @@ public class Arbolinho {
         this.raiz = null;
     }
 
-    public void crearArbol() {
+public void crearArbol() {
+    try {
+        BufferedReader reader = new BufferedReader(new FileReader("src\\Resources\\Nodos_DS.txt"));
+        String line;
+        while ((line = reader.readLine()) != null) {
 
-        try {
-            BufferedReader reader = new BufferedReader(new FileReader("C:\\Users\\alejo\\OneDrive\\Documentos\\GitHub\\LAB_EDD2\\src\\Resources\\Nodos_DS.txt"));
-            String line;
-            while ((line = reader.readLine()) != null) {
-                if (raiz == null) {
-                    String[] dataset = (reader.readLine().split(";"));
-                    raiz = new Nodo(Integer.parseInt(dataset[0]), "'" + dataset[1] + "'", "'" + dataset[2] + "'", "'" + dataset[3] + "'", null, null);
-                } else {
-                    String[] dataset = (reader.readLine().split(";"));
-                    Nodo plantilla = new Nodo(Integer.parseInt(dataset[0]), "'" + dataset[1] + "'", "'" + dataset[2] + "'", "'" + dataset[3] + "'", null, null);
-                    agregarRecursivo(raiz, plantilla);
-                }
+            if (line.trim().isEmpty()) {
+                continue;
             }
 
-        } catch (IOException e) {
-            System.out.println("lol, that shouldn't have happened");
+            String[] dataset = line.split(";");
+            Nodo plantilla = new Nodo(Integer.parseInt(dataset[0]), "'" + dataset[1] + "'", "'" + dataset[2] + "'", "'" + dataset[3] + "'", null, null);
+            if (raiz == null) {
+                raiz = plantilla;
+            } else {
+                agregarRecursivo(raiz, plantilla);
+            }
         }
+    } catch (IOException e) {
+        System.out.println("Error leyendo el archivo: " + e.getMessage());
     }
+}
 
     public void agregarRecursivo(Nodo nodo, Nodo nuevoNodo) {
         if (nodo.nombre > nuevoNodo.nombre) {
