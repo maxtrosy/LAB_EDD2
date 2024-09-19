@@ -27,6 +27,8 @@ public class Pantalla1_JUGAR extends javax.swing.JFrame {
 
             Font font = Font.createFont(Font.TRUETYPE_FONT, fontStyle).deriveFont(44f);
             jToggleButton2.setFont((font));
+            
+            
         } catch (Exception e) {
             e.printStackTrace();
         }
