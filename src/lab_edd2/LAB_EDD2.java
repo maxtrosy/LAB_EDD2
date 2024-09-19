@@ -15,6 +15,9 @@ public class LAB_EDD2 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        Arbolinho e = new Arbolinho();
+
+        e.crearArbol();
     }
-    
+
 }

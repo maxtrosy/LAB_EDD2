@@ -10,21 +10,20 @@ package lab_edd2;
  */
 public class Nodo {
 
-    String nombre;
+    int nombre;
     String imagen1;
     String imagen2;
     String imagen3;
-    Nodo izquierda;
-    Nodo derecha;
+    Nodo izq;
+    Nodo der;
 
-    public Nodo(String nombre, String imagen1, String imagen2, String imagen3, Nodo izquierda, Nodo derecha) {
+    public Nodo(int nombre, String imagen1, String imagen2, String imagen3, Nodo izq, Nodo der) {
         this.nombre = nombre;
         this.imagen1 = imagen1;
         this.imagen2 = imagen2;
         this.imagen3 = imagen3;
-        this.izquierda = izquierda;
-        this.derecha = derecha;
+        this.izq = izq;
+        this.der = der;
     }
 
-    
 }
