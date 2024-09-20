@@ -22,6 +22,8 @@ public class Arbolinho {
 
     Nodo raiz;
 
+    static ArrayList<List> recorrido = new ArrayList<>();
+
     public Arbolinho() {
         this.raiz = null;
     }
@@ -150,9 +152,10 @@ public class Arbolinho {
         }
     }
 
-    public void main(String[] args) {
-        crearArbol();
-        imprimirArbol();
-
+    public void guardarAventura(String entrada, Nodo nodo) {
+        List aventura = new ArrayList<Object>();
+        aventura.add(nodo);
+        aventura.add(entrada);
+        recorrido.add(aventura);
     }
 }
