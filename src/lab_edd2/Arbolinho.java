@@ -20,6 +20,7 @@ import java.util.logging.Logger;
  */
 public class Arbolinho {
 
+
     Nodo raiz;
 
     public Arbolinho() {
@@ -155,4 +156,7 @@ public class Arbolinho {
         imprimirArbol();
 
     }
+
+  
+
 }

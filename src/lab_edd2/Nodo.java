@@ -16,6 +16,7 @@ public class Nodo {
     String imagen3;
     Nodo izq;
     Nodo der;
+   
 
     public Nodo(int nombre, String imagen1, String imagen2, String imagen3, Nodo izq, Nodo der) {
         this.nombre = nombre;
