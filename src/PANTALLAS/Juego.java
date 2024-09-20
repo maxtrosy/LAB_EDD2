@@ -57,6 +57,7 @@ public class Juego extends javax.swing.JFrame {
         BtnOpcion3 = new javax.swing.JButton();
         BtnIzquierda = new javax.swing.JButton();
         BtnDerecha = new javax.swing.JButton();
+        plantilla = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -112,6 +113,9 @@ public class Juego extends javax.swing.JFrame {
             }
         });
         getContentPane().add(BtnDerecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(1150, 520, -1, -1));
+
+        plantilla.setText("jLabel2");
+        getContentPane().add(plantilla, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 1280, 800));
 
         pack();
@@ -259,5 +263,6 @@ public class Juego extends javax.swing.JFrame {
     private javax.swing.JButton BtnOpcion3;
     private javax.swing.JLabel TxtAcertijo;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel plantilla;
     // End of variables declaration//GEN-END:variables
 }
