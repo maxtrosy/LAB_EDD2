@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.Random;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import lab_edd2.Arbolinho;
 
 import lab_edd2.Nodo;
 
@@ -23,11 +24,20 @@ public class Juego extends javax.swing.JFrame {
 
     private String respuestaCorrecta;
 
+    static Nodo nodoActual;
+
+    static Nodo raiz;
+
     /**
      * Creates new form Juego
      */
     public Juego() {
         initComponents();
+        Arbolinho arbol = new Arbolinho();
+        arbol.crearArbol();
+        nodoActual = arbol.raiz;
+        raiz = arbol.raiz;
+        plantilla.setText(Integer.toString(nodoActual.nombre));
 
     }
 
@@ -140,17 +150,19 @@ public class Juego extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "¡Correcto!");
         } else {
             JOptionPane.showMessageDialog(this, "Incorrecto, intenta con otro acertijo.");
-           
+
             BtnAcertijoActionPerformed(null);
         }
     }
 
     private void BtnIzquierdaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnIzquierdaActionPerformed
         // TODO add your handling code here:
+        avanceHistoria(nodoActual, BtnIzquierda.getText());
     }//GEN-LAST:event_BtnIzquierdaActionPerformed
 
     private void BtnDerechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnDerechaActionPerformed
         // TODO add your handling code here:
+        avanceHistoria(nodoActual, BtnDerecha.getText());
     }//GEN-LAST:event_BtnDerechaActionPerformed
 
     private void BtnOpcion1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnOpcion1ActionPerformed
@@ -164,6 +176,44 @@ public class Juego extends javax.swing.JFrame {
     private void BtnOpcion3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnOpcion3ActionPerformed
         verificarRespuesta(BtnOpcion3.getText());
     }//GEN-LAST:event_BtnOpcion3ActionPerformed
+
+    public void avanceHistoria(Nodo nodo, String direccion) {
+
+        if (direccion.toLowerCase().equals("izquierda")) {
+            if (nodoActual.izq == null & nodoActual.der == null) {
+                JOptionPane.showMessageDialog(null, "No further information beyond this limit.");
+            } else {
+                nodoActual = nodoActual.izq;
+
+            }
+        } else {
+            if (direccion.toLowerCase().equals("derecha")) {
+                if (nodoActual.izq == null & nodoActual.der == null) {
+                    JOptionPane.showMessageDialog(null, "No further information beyond this limit.");
+                } else {
+                    nodoActual = nodoActual.der;
+
+                }
+            }
+        }
+    }
+
+    private Nodo encontrarPadre(Nodo raiz, Nodo nodo) {
+        if (raiz == null || nodo == null) {
+            return null;
+        }
+
+        if (raiz.izq == nodo || raiz.der == nodo) {
+            return raiz;
+        }
+
+        Nodo left = encontrarPadre(raiz.izq, nodo);
+        if (left != null) {
+            return left;
+        }
+
+        return encontrarPadre(raiz.der, nodo);
+    }
 
     /**
      * @param args the command line arguments
