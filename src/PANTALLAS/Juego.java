@@ -4,11 +4,15 @@
  */
 package PANTALLAS;
 
+import java.awt.Font;
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
@@ -28,19 +32,35 @@ public class Juego extends javax.swing.JFrame {
 
     static Nodo raiz;
 
-    static int Altura = 9;
+    private Map<Integer, String[]> datasetImagenes;
 
     /**
      * Creates new form Juego
      */
     public Juego() {
         initComponents();
+        transparenciaButton();
+        try {
+            File fontStyle = new File("src\\Fuente\\league-spartan\\LeagueSpartan-Bold.otf");
+
+            Font fontAcertijo = Font.createFont(Font.TRUETYPE_FONT, fontStyle).deriveFont(40f);
+            Font fontOpciones = Font.createFont(Font.TRUETYPE_FONT, fontStyle).deriveFont(20f);
+            TxtAcertijo.setFont((fontAcertijo));
+            BtnOpcion1.setFont((fontOpciones));
+            BtnOpcion2.setFont((fontOpciones));
+            BtnOpcion3.setFont((fontOpciones));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         Arbolinho arbol = new Arbolinho();
         arbol.crearArbol();
         nodoActual = arbol.raiz;
         raiz = arbol.raiz;
+
+        cargarDatasetImagenes();
+        actualizarImagenFondo();
+
         plantilla.setText(Integer.toString(nodoActual.nombre));
-        jLabel2.setText(Integer.toString(1) + ", Raíz");
 
         TxtAcertijo.setVisible(false);
         BtnOpcion1.setVisible(false);
@@ -48,6 +68,46 @@ public class Juego extends javax.swing.JFrame {
         BtnOpcion3.setVisible(false);
         BtnIzquierda.setVisible(false);
         BtnDerecha.setVisible(false);
+    }
+
+    private void cargarDatasetImagenes() {
+        datasetImagenes = new HashMap<>();
+        try (BufferedReader br = new BufferedReader(new FileReader("src\\Resources\\Nodos_DS.txt"))) {
+            String linea;
+            while ((linea = br.readLine()) != null) {
+                String[] partes = linea.split(";");
+                int nodoNombre = Integer.parseInt(partes[0]);
+                datasetImagenes.put(nodoNombre, partes);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void actualizarImagenFondo() {
+        String[] infoNodo = datasetImagenes.get(nodoActual.nombre);
+        if (infoNodo != null) {
+            String imagen1 = infoNodo[1];
+            String imagen2 = infoNodo[2];
+            String imagen3 = infoNodo[3];
+
+            if (BtnAcertijo.isVisible()) {
+                jLabel1.setIcon(new ImageIcon("src\\Resources\\ImagenesJuego\\" + imagen1));
+            } else if (TxtAcertijo.isVisible()) {
+                jLabel1.setIcon(new ImageIcon("src\\Resources\\ImagenesJuego\\" + imagen2));
+            } else if (BtnIzquierda.isVisible() && BtnDerecha.isVisible()) {
+                jLabel1.setIcon(new ImageIcon("src\\Resources\\ImagenesJuego\\" + imagen3));
+            }
+
+            jLabel1.revalidate();
+            jLabel1.repaint();
+        }
+    }
+
+    public void transparenciaButton() {
+        BtnAcertijo.setOpaque(false);
+        BtnAcertijo.setContentAreaFilled(false);
+        BtnAcertijo.setBorderPainted(false);
 
     }
 
@@ -69,21 +129,21 @@ public class Juego extends javax.swing.JFrame {
         BtnDerecha = new javax.swing.JButton();
         plantilla = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        BtnAcertijo.setText("jButton1");
+        BtnAcertijo.setBackground(new java.awt.Color(242, 242, 242));
         BtnAcertijo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnAcertijoActionPerformed(evt);
             }
         });
-        getContentPane().add(BtnAcertijo, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 180, 320, 70));
+        getContentPane().add(BtnAcertijo, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 180, 340, 100));
 
         TxtAcertijo.setText("jLabel2");
-        getContentPane().add(TxtAcertijo, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 260, 1160, -1));
+        TxtAcertijo.setToolTipText("");
+        getContentPane().add(TxtAcertijo, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 280, 1150, 70));
 
         BtnOpcion1.setText("jButton1");
         BtnOpcion1.addActionListener(new java.awt.event.ActionListener() {
@@ -115,7 +175,7 @@ public class Juego extends javax.swing.JFrame {
                 BtnIzquierdaActionPerformed(evt);
             }
         });
-        getContentPane().add(BtnIzquierda, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 510, -1, -1));
+        getContentPane().add(BtnIzquierda, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 620, -1, -1));
 
         BtnDerecha.setText("Derecha");
         BtnDerecha.addActionListener(new java.awt.event.ActionListener() {
@@ -123,20 +183,17 @@ public class Juego extends javax.swing.JFrame {
                 BtnDerechaActionPerformed(evt);
             }
         });
-        getContentPane().add(BtnDerecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(1150, 520, -1, -1));
+        getContentPane().add(BtnDerecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 620, -1, -1));
 
         plantilla.setText("jLabel2");
         getContentPane().add(plantilla, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 1280, 800));
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        jLabel2.setText("jLabel2");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 760, 250, -1));
-
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void BtnAcertijoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAcertijoActionPerformed
+
         TxtAcertijo.setVisible(true);
         BtnOpcion1.setVisible(true);
         BtnOpcion2.setVisible(true);
@@ -164,7 +221,13 @@ public class Juego extends javax.swing.JFrame {
             BtnOpcion3.setText(acertijoSeleccionado[4]);
 
             respuestaCorrecta = acertijoSeleccionado[5];
-
+            String[] infoNodo = datasetImagenes.get(nodoActual.nombre);
+            if (infoNodo != null) {
+                String imagen2 = infoNodo[2];
+                jLabel1.setIcon(new ImageIcon("src\\Resources\\ImagenesJuego\\" + imagen2));
+                jLabel1.revalidate();
+                jLabel1.repaint();
+            }
             reader.close();
         } catch (IOException e) {
             e.printStackTrace();
@@ -182,6 +245,8 @@ public class Juego extends javax.swing.JFrame {
             BtnOpcion2.setVisible(false);
             BtnOpcion3.setVisible(false);
             BtnAcertijo.setVisible(false);
+
+            actualizarImagenFondo();
         } else {
             JOptionPane.showMessageDialog(this, "Incorrecto, intenta con otro acertijo.");
 
@@ -195,14 +260,12 @@ public class Juego extends javax.swing.JFrame {
     private void BtnIzquierdaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnIzquierdaActionPerformed
         // TODO add your handling code here:
         avanceHistoria(nodoActual, BtnIzquierda.getText());
-        jLabel2.setText(Integer.toString(Altura - nodoActual.alturaArbol(nodoActual)) + ", " + BtnIzquierda.getText());
 
     }//GEN-LAST:event_BtnIzquierdaActionPerformed
 
     private void BtnDerechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnDerechaActionPerformed
         // TODO add your handling code here:
         avanceHistoria(nodoActual, BtnDerecha.getText());
-        jLabel2.setText(Integer.toString(Altura - nodoActual.alturaArbol(nodoActual.der)) + ", " + BtnDerecha.getText());
     }//GEN-LAST:event_BtnDerechaActionPerformed
 
     private void BtnOpcion1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnOpcion1ActionPerformed
@@ -221,33 +284,31 @@ public class Juego extends javax.swing.JFrame {
         if (direccion.toLowerCase().equals("izquierda")) {
             if (nodoActual.izq == null && nodoActual.der == null) {
 
-                verificarNodoLlegada(nodoActual, BtnIzquierda.getText());
+                verificarNodoLlegada(nodoActual);
             } else {
                 nodoActual = nodoActual.izq;
-
                 plantilla.setText(Integer.toString(nodoActual.nombre));
                 BtnIzquierda.setVisible(false);
                 BtnDerecha.setVisible(false);
                 BtnAcertijo.setVisible(true);
-
+                actualizarImagenFondo();
                 if (esHoja(nodoActual)) {
-                    verificarNodoLlegada(nodoActual, BtnIzquierda.getText());
+                    verificarNodoLlegada(nodoActual);
                 }
             }
         } else if (direccion.toLowerCase().equals("derecha")) {
             if (nodoActual.izq == null && nodoActual.der == null) {
 
-                verificarNodoLlegada(nodoActual, BtnDerecha.getText());
+                verificarNodoLlegada(nodoActual);
             } else {
                 nodoActual = nodoActual.der;
-                jLabel2.setText(Integer.toString(Altura - nodoActual.alturaArbol(nodoActual)) + ", " + BtnDerecha.getText());
                 plantilla.setText(Integer.toString(nodoActual.nombre));
                 BtnIzquierda.setVisible(false);
                 BtnDerecha.setVisible(false);
                 BtnAcertijo.setVisible(true);
-
+                actualizarImagenFondo();
                 if (esHoja(nodoActual)) {
-                    verificarNodoLlegada(nodoActual, BtnDerecha.getText());
+                    verificarNodoLlegada(nodoActual);
                 }
             }
         }
@@ -257,19 +318,17 @@ public class Juego extends javax.swing.JFrame {
         return nodo.izq == null && nodo.der == null;
     }
 
-    private void verificarNodoLlegada(Nodo nodo, String direccion) {
+    private void verificarNodoLlegada(Nodo nodo) {
         if (nodo.llegada) {
 
         } else {
-
+            JOptionPane.showMessageDialog(null, "¡Te moriste! Regresando al nodo anterior...");
             nodoActual = encontrarPadre(raiz, nodo);
-            jLabel2.setText(Integer.toString((Altura - nodoActual.alturaArbol(nodoActual)) + 1) + ", " + direccion);
+            actualizarImagenFondo();
             plantilla.setText(Integer.toString(nodoActual.nombre));
             BtnIzquierda.setVisible(false);
             BtnDerecha.setVisible(false);
             BtnAcertijo.setVisible(true);
-            JOptionPane.showMessageDialog(null, "¡Te moriste! Regresando al nodo anterior...");
-
         }
     }
 
@@ -334,7 +393,6 @@ public class Juego extends javax.swing.JFrame {
     private javax.swing.JButton BtnOpcion3;
     private javax.swing.JLabel TxtAcertijo;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel plantilla;
     // End of variables declaration//GEN-END:variables
 }

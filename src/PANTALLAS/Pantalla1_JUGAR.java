@@ -95,7 +95,7 @@ public class Pantalla1_JUGAR extends javax.swing.JFrame {
         this.setVisible(false);
         frameinstruc.setVisible(true);
     }//GEN-LAST:event_jToggleButton2ActionPerformed
-
+            
     /**
      * @param args the command line arguments
      */
