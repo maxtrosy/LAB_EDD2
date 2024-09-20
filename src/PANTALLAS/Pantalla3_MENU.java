@@ -95,6 +95,7 @@ public class Pantalla3_MENU extends javax.swing.JFrame {
             }
         }, 0, 15000);
 
+        
     }//GEN-LAST:event_Bt_comienzajuegoActionPerformed
     private void avanzarPantalla() {
         this.setVisible(false);
