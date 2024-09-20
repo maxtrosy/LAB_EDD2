@@ -12,12 +12,10 @@ public class Pantalla2_INSTRUCCIONES extends javax.swing.JFrame {
 
     public static Pantalla3_MENU frameMENU = new Pantalla3_MENU();
 
-    /**
-     * Creates new form Pantalla2_INSTRUCCIONES
-     */
+    private boolean recicla = false;
+
     public Pantalla2_INSTRUCCIONES() {
         initComponents();
-        setLocationRelativeTo(null);
 
     }
 
@@ -92,7 +90,7 @@ public class Pantalla2_INSTRUCCIONES extends javax.swing.JFrame {
 
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Lucia Montoya\\Downloads\\koala\\Instrucciones.png")); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\maxtr\\OneDrive\\Documentos\\GitHub\\LAB_EDD2\\src\\IMAGENES\\Instrucciones.png")); // NOI18N
         jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 800));
@@ -101,27 +99,35 @@ public class Pantalla2_INSTRUCCIONES extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void Bt_derActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Bt_derActionPerformed
-        this.setVisible(false);
-        frameMENU.setVisible(true);
+        if (recicla) {
+            this.setVisible(false);
+            frameMENU.setVisible(true);
+        } else {
+            new Pop_up("src/imagenes/NO.png");
+        }
     }//GEN-LAST:event_Bt_derActionPerformed
 
     private void Bt_estudiandoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Bt_estudiandoActionPerformed
-        // TODO add your handling code here:
+            new Pop_up("src/imagenes/NO.png");
     }//GEN-LAST:event_Bt_estudiandoActionPerformed
 
     private void Bt_izqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Bt_izqActionPerformed
-        // TODO add your handling code here:
+        new Pop_up("src/imagenes/NO.png");  
     }//GEN-LAST:event_Bt_izqActionPerformed
 
     private void Bt_reciclandoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Bt_reciclandoActionPerformed
-        // TODO add your handling code here:
+        recicla = true;
+        new Pop_up("src/imagenes/SI.png");
     }//GEN-LAST:event_Bt_reciclandoActionPerformed
 
     private void Bt_barriendoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Bt_barriendoActionPerformed
-
+        new Pop_up("src/imagenes/NO.png");
 
     }//GEN-LAST:event_Bt_barriendoActionPerformed
 
+    /**
+     * @param args the command line arguments
+     */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -144,8 +150,6 @@ public class Pantalla2_INSTRUCCIONES extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(Pantalla2_INSTRUCCIONES.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
