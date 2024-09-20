@@ -24,6 +24,7 @@ public class Pantalla1_JUGAR extends javax.swing.JFrame {
      */
     public Pantalla1_JUGAR() {
         initComponents();
+        this.setLocationRelativeTo(null);
         try {
             File fontStyle = new File("src\\Fuente\\league-spartan\\LeagueSpartan-Bold.otf");
 //GUAU GUAU 
@@ -52,6 +53,8 @@ public class Pantalla1_JUGAR extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jToggleButton2.setForeground(new java.awt.Color(255, 255, 255));
@@ -66,7 +69,7 @@ public class Pantalla1_JUGAR extends javax.swing.JFrame {
         });
         getContentPane().add(jToggleButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 610, 350, 80));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\maxtr\\OneDrive\\Documentos\\GitHub\\LAB_EDD2\\src\\IMAGENES\\JUGAR.png")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Lucia Montoya\\Downloads\\koala\\JUGAR.png")); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
