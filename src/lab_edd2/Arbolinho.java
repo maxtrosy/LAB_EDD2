@@ -158,4 +158,23 @@ public class Arbolinho {
         aventura.add(entrada);
         recorrido.add(aventura);
     }
+
+    public void avanceHistoria(Nodo nodo, String direccion) {
+
+        Nodo actual = nodo;
+
+        if (direccion.equals("izquierda")) {
+            if (nodo.izq == null & nodo.der == null) {
+                if (nodo.llegada == true) {
+                    System.out.println("Tremendo");
+                }
+            }
+
+        } else {
+            if (direccion.equals("derecha")) {
+
+            }
+        }
+    }
+
 }
