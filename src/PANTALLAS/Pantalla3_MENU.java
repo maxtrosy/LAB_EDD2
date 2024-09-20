@@ -101,6 +101,7 @@ public class Pantalla3_MENU extends javax.swing.JFrame {
         // PantallaNueva nuevaPantalla = new PantallaNueva(); 
         //nuevaPantalla.setVisible(true);
     }
+    //MIAU
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
