@@ -10,13 +10,13 @@ package lab_edd2;
  */
 public class Nodo {
 
-    int nombre;
+    public int nombre;
     String imagen1;
     String imagen2;
     String imagen3;
-    boolean llegada;
-    Nodo izq;
-    Nodo der;
+    public boolean llegada;
+    public Nodo izq;
+    public Nodo der;
 
     public Nodo(int nombre, String imagen1, String imagen2, String imagen3, Nodo izq, Nodo der) {
         this.nombre = nombre;

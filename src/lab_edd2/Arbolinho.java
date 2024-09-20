@@ -20,7 +20,7 @@ import java.util.logging.Logger;
  */
 public class Arbolinho {
 
-    Nodo raiz;
+    public static Nodo raiz;
 
     static ArrayList<List> recorrido = new ArrayList<>();
 
@@ -159,22 +159,5 @@ public class Arbolinho {
         recorrido.add(aventura);
     }
 
-    public void avanceHistoria(Nodo nodo, String direccion) {
-
-        Nodo actual = nodo;
-
-        if (direccion.equals("izquierda")) {
-            if (nodo.izq == null & nodo.der == null) {
-                if (nodo.llegada == true) {
-                    System.out.println("Tremendo");
-                }
-            }
-
-        } else {
-            if (direccion.equals("derecha")) {
-
-            }
-        }
-    }
-
+    
 }
