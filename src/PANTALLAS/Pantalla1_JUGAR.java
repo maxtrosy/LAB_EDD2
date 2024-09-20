@@ -24,7 +24,6 @@ public class Pantalla1_JUGAR extends javax.swing.JFrame {
      */
     public Pantalla1_JUGAR() {
         initComponents();
-        setLocationRelativeTo(null);
         try {
             File fontStyle = new File("src\\Fuente\\league-spartan\\LeagueSpartan-Bold.otf");
 
@@ -51,8 +50,6 @@ public class Pantalla1_JUGAR extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setUndecorated(true);
-        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jToggleButton2.setForeground(new java.awt.Color(255, 255, 255));
@@ -119,8 +116,6 @@ public class Pantalla1_JUGAR extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(Pantalla1_JUGAR.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
