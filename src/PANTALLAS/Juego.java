@@ -98,7 +98,7 @@ public class Juego extends javax.swing.JFrame {
         });
         getContentPane().add(BtnOpcion3, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 630, -1, -1));
 
-        BtnIzquierda.setText("jButton1");
+        BtnIzquierda.setText("Izquierda");
         BtnIzquierda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnIzquierdaActionPerformed(evt);
@@ -106,7 +106,7 @@ public class Juego extends javax.swing.JFrame {
         });
         getContentPane().add(BtnIzquierda, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 510, -1, -1));
 
-        BtnDerecha.setText("jButton2");
+        BtnDerecha.setText("Derecha");
         BtnDerecha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnDerechaActionPerformed(evt);
@@ -162,6 +162,7 @@ public class Juego extends javax.swing.JFrame {
     private void BtnIzquierdaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnIzquierdaActionPerformed
         // TODO add your handling code here:
         avanceHistoria(nodoActual, BtnIzquierda.getText());
+
     }//GEN-LAST:event_BtnIzquierdaActionPerformed
 
     private void BtnDerechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnDerechaActionPerformed
@@ -188,7 +189,7 @@ public class Juego extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "No further information beyond this limit.");
             } else {
                 nodoActual = nodoActual.izq;
-
+                plantilla.setText(Integer.toString(nodoActual.nombre));
             }
         } else {
             if (direccion.toLowerCase().equals("derecha")) {
@@ -196,7 +197,7 @@ public class Juego extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "No further information beyond this limit.");
                 } else {
                     nodoActual = nodoActual.der;
-
+                    plantilla.setText(Integer.toString(nodoActual.nombre));
                 }
             }
         }
