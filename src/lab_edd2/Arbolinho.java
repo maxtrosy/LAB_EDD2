@@ -20,12 +20,7 @@ import java.util.logging.Logger;
  */
 public class Arbolinho {
 
-
-
     public Nodo raiz;
-
-
-
 
     static ArrayList<List> recorrido = new ArrayList<>();
 
@@ -54,6 +49,23 @@ public class Arbolinho {
         } catch (IOException e) {
             System.out.println("Error leyendo el archivo: " + e.getMessage());
         }
+    }
+
+    private void crearArbolDesdeDataset() throws IOException {
+        BufferedReader reader = new BufferedReader(new FileReader("src\\Resources\\Nodos_DS.txt"));
+        String linea;
+        while ((linea = reader.readLine()) != null) {
+            String[] partes = linea.split(";");
+            int nombre = Integer.parseInt(partes[0]);
+            String imagen1 = partes[1];
+            String imagen2 = partes[2];
+            String imagen3 = partes[3];
+            boolean llegada = partes.length > 4 && Boolean.parseBoolean(partes[4]); 
+
+            Nodo nuevoNodo = new Nodo(nombre, imagen1, imagen2, imagen3, llegada, null, null);
+
+        }
+        reader.close();
     }
 
     public void agregarRecursivo(Nodo nodo, Nodo nuevoNodo) {
@@ -164,10 +176,6 @@ public class Arbolinho {
         recorrido.add(aventura);
     }
 
-
-
-
-  
     public void avanceHistoria(Nodo nodo, String direccion) {
 
         Nodo actual = nodo;
@@ -185,6 +193,5 @@ public class Arbolinho {
             }
         }
     }
-
 
 }

@@ -29,4 +29,16 @@ public class Nodo {
         this.der = der;
     }
 
+    public Nodo(int nombre, String imagen1, String imagen2, String imagen3, boolean llegada, Nodo izq, Nodo der) {
+        this.nombre = nombre;
+        this.imagen1 = imagen1;
+        this.imagen2 = imagen2;
+        this.imagen3 = imagen3;
+        this.llegada = llegada;
+        this.izq = izq;
+        this.der = der;
+    }
+
+    
+    
 }
