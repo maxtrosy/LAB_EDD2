@@ -16,6 +16,7 @@ public class Pantalla2_INSTRUCCIONES extends javax.swing.JFrame {
 
     public Pantalla2_INSTRUCCIONES() {
         initComponents();
+        this.setLocationRelativeTo(null);
 
     }
 
@@ -37,8 +38,6 @@ public class Pantalla2_INSTRUCCIONES extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setUndecorated(true);
-        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Bt_izq.setToolTipText("");
@@ -90,7 +89,7 @@ public class Pantalla2_INSTRUCCIONES extends javax.swing.JFrame {
 
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\maxtr\\OneDrive\\Documentos\\GitHub\\LAB_EDD2\\src\\IMAGENES\\Instrucciones.png")); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Lucia Montoya\\Downloads\\koala\\Instrucciones.png")); // NOI18N
         jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 800));
