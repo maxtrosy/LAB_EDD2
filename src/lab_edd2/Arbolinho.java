@@ -26,28 +26,28 @@ public class Arbolinho {
         this.raiz = null;
     }
 
-public void crearArbol() {
-    try {
-        BufferedReader reader = new BufferedReader(new FileReader("src\\Resources\\Nodos_DS.txt"));
-        String line;
-        while ((line = reader.readLine()) != null) {
+    public void crearArbol() {
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader("src\\Resources\\Nodos_DS.txt"));
+            String line;
+            while ((line = reader.readLine()) != null) {
 
-            if (line.trim().isEmpty()) {
-                continue;
-            }
+                if (line.trim().isEmpty()) {
+                    continue;
+                }
 
-            String[] dataset = line.split(";");
-            Nodo plantilla = new Nodo(Integer.parseInt(dataset[0]), "'" + dataset[1] + "'", "'" + dataset[2] + "'", "'" + dataset[3] + "'", null, null);
-            if (raiz == null) {
-                raiz = plantilla;
-            } else {
-                agregarRecursivo(raiz, plantilla);
+                String[] dataset = line.split(";");
+                Nodo plantilla = new Nodo(Integer.parseInt(dataset[0]), "'" + dataset[1] + "'", "'" + dataset[2] + "'", "'" + dataset[3] + "'", null, null);
+                if (raiz == null) {
+                    raiz = plantilla;
+                } else {
+                    agregarRecursivo(raiz, plantilla);
+                }
             }
+        } catch (IOException e) {
+            System.out.println("Error leyendo el archivo: " + e.getMessage());
         }
-    } catch (IOException e) {
-        System.out.println("Error leyendo el archivo: " + e.getMessage());
     }
-}
 
     public void agregarRecursivo(Nodo nodo, Nodo nuevoNodo) {
         if (nodo.nombre > nuevoNodo.nombre) {
@@ -66,44 +66,11 @@ public void crearArbol() {
         }
     }
 
-    public void TreePrinter() {
-        int h = alturaArbol(this.raiz);
-        int col = getcol(h);
-        int[][] M = new int[h][col];
-        printTree(M, this.raiz, col / 2, 0, h);
-        for (int i = 0; i < h; i++) {
-            for (int j = 0; j < col; j++) {
-                if (M[i][j] == 0) {
-                    System.out.print("  ");
-                } else {
-                    System.out.print(M[i][j] + " ");
-                }
-            }
-            System.out.println();
-        }
-    }
-
     public static int alturaArbol(Nodo n1) {
         if (n1 == null) {
             return 0;
         }
         return Math.max(alturaArbol(n1.izq), alturaArbol(n1.der)) + 1;
-    }
-
-    public static int getcol(int h) {
-        if (h == 1) {
-            return 1;
-        }
-        return getcol(h - 1) + getcol(h - 1) + 1;
-    }
-
-    public static void printTree(int[][] M, Nodo raiz, int col, int row, int height) {
-        if (raiz == null) {
-            return;
-        }
-        M[row][col] = raiz.nombre;
-        printTree(M, raiz.izq, col - (int) Math.pow(2, height - 2), row + 1, height - 1);
-        printTree(M, raiz.der, col + (int) Math.pow(2, height - 2), row + 1, height - 1);
     }
 
     public void imprimirArbol() {  // Método para iniciar la impresión del árbol
