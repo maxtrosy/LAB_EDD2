@@ -26,6 +26,8 @@ public class Pantalla1_JUGAR extends javax.swing.JFrame {
         initComponents();
         try {
             File fontStyle = new File("src\\Fuente\\league-spartan\\LeagueSpartan-Bold.otf");
+//GUAU GUAU 
+
 
             Font font = Font.createFont(Font.TRUETYPE_FONT, fontStyle).deriveFont(60f);
             jToggleButton2.setFont((font));
