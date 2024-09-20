@@ -8,16 +8,16 @@ import static PANTALLAS.Pantalla1_JUGAR.frameinstruc;
 import java.awt.Font;
 import java.io.File;
 
-
-
 public class Pantalla2_INSTRUCCIONES extends javax.swing.JFrame {
-        
+
     public static Pantalla3_MENU frameMENU = new Pantalla3_MENU();
+
     /**
      * Creates new form Pantalla2_INSTRUCCIONES
      */
     public Pantalla2_INSTRUCCIONES() {
-               initComponents();
+        initComponents();
+        setLocationRelativeTo(null);
 
     }
 
@@ -39,10 +39,11 @@ public class Pantalla2_INSTRUCCIONES extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Bt_izq.setToolTipText("");
-        Bt_izq.setActionCommand("");
         Bt_izq.setBorderPainted(false);
         Bt_izq.setContentAreaFilled(false);
         Bt_izq.addActionListener(new java.awt.event.ActionListener() {
@@ -117,12 +118,10 @@ public class Pantalla2_INSTRUCCIONES extends javax.swing.JFrame {
     }//GEN-LAST:event_Bt_reciclandoActionPerformed
 
     private void Bt_barriendoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Bt_barriendoActionPerformed
-        // TODO add your handling code here:
+
+
     }//GEN-LAST:event_Bt_barriendoActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

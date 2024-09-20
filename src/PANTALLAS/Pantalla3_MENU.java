@@ -1,7 +1,9 @@
-
 package PANTALLAS;
 
 import static PANTALLAS.Pantalla1_JUGAR.frameinstruc;
+import javax.swing.*;
+import java.util.Timer;
+import java.util.TimerTask;
 
 /**
  *
@@ -9,11 +11,21 @@ import static PANTALLAS.Pantalla1_JUGAR.frameinstruc;
  */
 public class Pantalla3_MENU extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Pantalla3_MENU
-     */
+    private Timer timer;
+    private int imageIndex = 0;
+    private String[] imagenes;
+    private int totalImages;
+
     public Pantalla3_MENU() {
         initComponents();
+        setLocationRelativeTo(null);
+
+        imagenes = new String[]{
+            "src/imagenes/5.png",
+            "src/imagenes/6.png",
+            "src/imagenes/7.png"
+        };
+        totalImages = imagenes.length;
     }
 
     /**
@@ -31,6 +43,8 @@ public class Pantalla3_MENU extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Bt_instrucciones.setBorderPainted(false);
@@ -67,13 +81,27 @@ public class Pantalla3_MENU extends javax.swing.JFrame {
     }//GEN-LAST:event_Bt_instruccionesActionPerformed
 
     private void Bt_comienzajuegoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Bt_comienzajuegoActionPerformed
-
-
+        
+        timer = new Timer();
+        timer.scheduleAtFixedRate(new TimerTask() {
+            @Override
+            public void run() {
+                ImageIcon icon = new ImageIcon(imagenes[imageIndex]);
+                jLabel1.setIcon(icon);
+                imageIndex = (imageIndex + 1) % imagenes.length; 
+                //if (imageIndex >= totalImages) {
+                  //  timer.cancel();  // Detener el timer
+                  //  avanzarPantalla();  // Método para avanzar a la nueva pantalla
+               // }
+            }
+        }, 0, 15000);
     }//GEN-LAST:event_Bt_comienzajuegoActionPerformed
+    private void avanzarPantalla() {
+        this.setVisible(false);
+        // PantallaNueva nuevaPantalla = new PantallaNueva(); 
+        //nuevaPantalla.setVisible(true);
+    }
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
