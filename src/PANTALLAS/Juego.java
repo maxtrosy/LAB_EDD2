@@ -39,6 +39,12 @@ public class Juego extends javax.swing.JFrame {
         raiz = arbol.raiz;
         plantilla.setText(Integer.toString(nodoActual.nombre));
 
+        TxtAcertijo.setVisible(false);
+        BtnOpcion1.setVisible(false);
+        BtnOpcion2.setVisible(false);
+        BtnOpcion3.setVisible(false);
+        BtnIzquierda.setVisible(false);
+        BtnDerecha.setVisible(false);
     }
 
     /**
@@ -122,6 +128,12 @@ public class Juego extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BtnAcertijoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAcertijoActionPerformed
+        TxtAcertijo.setVisible(true);
+        BtnOpcion1.setVisible(true);
+        BtnOpcion2.setVisible(true);
+        BtnOpcion3.setVisible(true);
+        BtnAcertijo.setVisible(false);
+
         try {
 
             BufferedReader reader = new BufferedReader(new FileReader("src/Resources/Acertijos_DS.txt"));
@@ -152,8 +164,20 @@ public class Juego extends javax.swing.JFrame {
     private void verificarRespuesta(String respuestaSeleccionada) {
         if (respuestaSeleccionada.equals(respuestaCorrecta)) {
             JOptionPane.showMessageDialog(this, "¡Correcto!");
+
+            BtnIzquierda.setVisible(true);
+            BtnDerecha.setVisible(true);
+
+            TxtAcertijo.setVisible(false);
+            BtnOpcion1.setVisible(false);
+            BtnOpcion2.setVisible(false);
+            BtnOpcion3.setVisible(false);
+            BtnAcertijo.setVisible(false);
         } else {
             JOptionPane.showMessageDialog(this, "Incorrecto, intenta con otro acertijo.");
+
+            BtnIzquierda.setVisible(false);
+            BtnDerecha.setVisible(false);
 
             BtnAcertijoActionPerformed(null);
         }
@@ -183,27 +207,53 @@ public class Juego extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnOpcion3ActionPerformed
 
     public void avanceHistoria(Nodo nodo, String direccion) {
-
         if (direccion.toLowerCase().equals("izquierda")) {
-            if (nodoActual.izq == null & nodoActual.der == null) {
-                nodoActual = encontrarPadre(raiz, nodo);
-                plantilla.setText(Integer.toString(nodoActual.nombre));
-                JOptionPane.showMessageDialog(null, "No further information beyond this limit.");
+            if (nodoActual.izq == null && nodoActual.der == null) {
+
+                verificarNodoLlegada(nodoActual);
             } else {
                 nodoActual = nodoActual.izq;
                 plantilla.setText(Integer.toString(nodoActual.nombre));
-            }
-        } else {
-            if (direccion.toLowerCase().equals("derecha")) {
-                if (nodoActual.izq == null & nodoActual.der == null) {
-                    nodoActual = encontrarPadre(raiz, nodo);
-                    plantilla.setText(Integer.toString(nodoActual.nombre));
-                    JOptionPane.showMessageDialog(null, "No further information beyond this limit.");
-                } else {
-                    nodoActual = nodoActual.der;
-                    plantilla.setText(Integer.toString(nodoActual.nombre));
+                BtnIzquierda.setVisible(false);
+                BtnDerecha.setVisible(false);
+                BtnAcertijo.setVisible(true);
+
+                if (esHoja(nodoActual)) {
+                    verificarNodoLlegada(nodoActual);
                 }
             }
+        } else if (direccion.toLowerCase().equals("derecha")) {
+            if (nodoActual.izq == null && nodoActual.der == null) {
+
+                verificarNodoLlegada(nodoActual);
+            } else {
+                nodoActual = nodoActual.der;
+                plantilla.setText(Integer.toString(nodoActual.nombre));
+                BtnIzquierda.setVisible(false);
+                BtnDerecha.setVisible(false);
+                BtnAcertijo.setVisible(true);
+
+                if (esHoja(nodoActual)) {
+                    verificarNodoLlegada(nodoActual);
+                }
+            }
+        }
+    }
+
+    private boolean esHoja(Nodo nodo) {
+        return nodo.izq == null && nodo.der == null;
+    }
+
+    private void verificarNodoLlegada(Nodo nodo) {
+        if (nodo.llegada) {
+
+        } else {
+            JOptionPane.showMessageDialog(null, "¡Te moriste! Regresando al nodo anterior...");
+            nodoActual = encontrarPadre(raiz, nodo);
+            plantilla.setText(Integer.toString(nodoActual.nombre));
+            BtnIzquierda.setVisible(false);
+            BtnDerecha.setVisible(false);
+            BtnAcertijo.setVisible(true);
         }
     }
 
