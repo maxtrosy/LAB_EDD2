@@ -186,6 +186,8 @@ public class Juego extends javax.swing.JFrame {
 
         if (direccion.toLowerCase().equals("izquierda")) {
             if (nodoActual.izq == null & nodoActual.der == null) {
+                nodoActual = encontrarPadre(raiz, nodo);
+                plantilla.setText(Integer.toString(nodoActual.nombre));
                 JOptionPane.showMessageDialog(null, "No further information beyond this limit.");
             } else {
                 nodoActual = nodoActual.izq;
@@ -194,6 +196,8 @@ public class Juego extends javax.swing.JFrame {
         } else {
             if (direccion.toLowerCase().equals("derecha")) {
                 if (nodoActual.izq == null & nodoActual.der == null) {
+                    nodoActual = encontrarPadre(raiz, nodo);
+                    plantilla.setText(Integer.toString(nodoActual.nombre));
                     JOptionPane.showMessageDialog(null, "No further information beyond this limit.");
                 } else {
                     nodoActual = nodoActual.der;
