@@ -13,7 +13,7 @@ import lab_edd2.Nodo;
  *
  * @author alejo
  */
-public class pantallaPlantilla extends javax.swing.JFrame {
+public class pantallaPlantilla1 extends javax.swing.JFrame {
 
     /**
      * Creates new form pantallaPlantilla
@@ -21,7 +21,7 @@ public class pantallaPlantilla extends javax.swing.JFrame {
     static Nodo nodoActual;
     static Nodo raiz;
 
-    public pantallaPlantilla() {
+    public pantallaPlantilla1() {
         initComponents();
         Arbolinho arbol = new Arbolinho();
         arbol.crearArbol();
@@ -187,13 +187,13 @@ public class pantallaPlantilla extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(pantallaPlantilla.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(pantallaPlantilla1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(pantallaPlantilla.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(pantallaPlantilla1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(pantallaPlantilla.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(pantallaPlantilla1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(pantallaPlantilla.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(pantallaPlantilla1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
@@ -201,7 +201,7 @@ public class pantallaPlantilla extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new pantallaPlantilla().setVisible(true);
+                new pantallaPlantilla1().setVisible(true);
             }
         });
     }

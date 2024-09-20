@@ -17,7 +17,10 @@ public class Nodo {
     public boolean llegada;
     public Nodo izq;
     public Nodo der;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 0484f0d25a4f4ec1236742d9c697a2ef45dd01af
 
     public Nodo(int nombre, String imagen1, String imagen2, String imagen3, Nodo izq, Nodo der) {
         this.nombre = nombre;
