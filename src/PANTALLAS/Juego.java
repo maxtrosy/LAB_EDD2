@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Random;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
-import lab_edd2.Arbolinho;
+
 import lab_edd2.Nodo;
 
 /**

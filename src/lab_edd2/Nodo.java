@@ -14,6 +14,7 @@ public class Nodo {
     String imagen1;
     String imagen2;
     String imagen3;
+    boolean llegada;
     Nodo izq;
     Nodo der;
    
@@ -23,6 +24,7 @@ public class Nodo {
         this.imagen1 = imagen1;
         this.imagen2 = imagen2;
         this.imagen3 = imagen3;
+        this.llegada = false;
         this.izq = izq;
         this.der = der;
     }
