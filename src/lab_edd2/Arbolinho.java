@@ -161,6 +161,8 @@ public class Arbolinho {
 
     public void avanceHistoria(Nodo nodo, String direccion) {
 
+        Nodo actual = nodo;
+
         if (direccion.equals("izquierda")) {
             if (nodo.izq == null & nodo.der == null) {
                 if (nodo.llegada == true) {
@@ -169,7 +171,7 @@ public class Arbolinho {
             }
 
         } else {
-            if (direccion.equals("izquierda")) {
+            if (direccion.equals("derecha")) {
 
             }
         }
