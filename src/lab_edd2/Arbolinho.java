@@ -20,8 +20,12 @@ import java.util.logging.Logger;
  */
 public class Arbolinho {
 
+<<<<<<< HEAD
 
     Nodo raiz;
+=======
+    public static Nodo raiz;
+>>>>>>> 223c683e07b294ba1bc94c82fc4ffa45bcc077bf
 
     static ArrayList<List> recorrido = new ArrayList<>();
 
@@ -160,6 +164,7 @@ public class Arbolinho {
         recorrido.add(aventura);
     }
 
+<<<<<<< HEAD
 
   
     public void avanceHistoria(Nodo nodo, String direccion) {
@@ -181,4 +186,7 @@ public class Arbolinho {
     }
 
 
+=======
+    
+>>>>>>> 223c683e07b294ba1bc94c82fc4ffa45bcc077bf
 }
