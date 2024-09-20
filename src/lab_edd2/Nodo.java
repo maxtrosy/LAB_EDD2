@@ -39,6 +39,11 @@ public class Nodo {
         this.der = der;
     }
 
-    
+    public static int alturaArbol(Nodo n1) {
+        if (n1 == null) {
+            return 0;
+        }
+        return Math.max(alturaArbol(n1.izq), alturaArbol(n1.der)) + 1;
+    }
     
 }

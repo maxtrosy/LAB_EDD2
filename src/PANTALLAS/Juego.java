@@ -28,6 +28,8 @@ public class Juego extends javax.swing.JFrame {
 
     static Nodo raiz;
 
+    static int Altura = 9;
+
     /**
      * Creates new form Juego
      */
@@ -38,6 +40,7 @@ public class Juego extends javax.swing.JFrame {
         nodoActual = arbol.raiz;
         raiz = arbol.raiz;
         plantilla.setText(Integer.toString(nodoActual.nombre));
+        jLabel2.setText(Integer.toString(1) + ", Raíz");
 
         TxtAcertijo.setVisible(false);
         BtnOpcion1.setVisible(false);
@@ -45,6 +48,7 @@ public class Juego extends javax.swing.JFrame {
         BtnOpcion3.setVisible(false);
         BtnIzquierda.setVisible(false);
         BtnDerecha.setVisible(false);
+
     }
 
     /**
@@ -65,6 +69,7 @@ public class Juego extends javax.swing.JFrame {
         BtnDerecha = new javax.swing.JButton();
         plantilla = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -123,6 +128,10 @@ public class Juego extends javax.swing.JFrame {
         plantilla.setText("jLabel2");
         getContentPane().add(plantilla, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 1280, 800));
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        jLabel2.setText("jLabel2");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 760, 250, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -186,12 +195,14 @@ public class Juego extends javax.swing.JFrame {
     private void BtnIzquierdaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnIzquierdaActionPerformed
         // TODO add your handling code here:
         avanceHistoria(nodoActual, BtnIzquierda.getText());
+        jLabel2.setText(Integer.toString(Altura - nodoActual.alturaArbol(nodoActual)) + ", " + BtnIzquierda.getText());
 
     }//GEN-LAST:event_BtnIzquierdaActionPerformed
 
     private void BtnDerechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnDerechaActionPerformed
         // TODO add your handling code here:
         avanceHistoria(nodoActual, BtnDerecha.getText());
+        jLabel2.setText(Integer.toString(Altura - nodoActual.alturaArbol(nodoActual.der)) + ", " + BtnDerecha.getText());
     }//GEN-LAST:event_BtnDerechaActionPerformed
 
     private void BtnOpcion1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnOpcion1ActionPerformed
@@ -210,31 +221,33 @@ public class Juego extends javax.swing.JFrame {
         if (direccion.toLowerCase().equals("izquierda")) {
             if (nodoActual.izq == null && nodoActual.der == null) {
 
-                verificarNodoLlegada(nodoActual);
+                verificarNodoLlegada(nodoActual, BtnIzquierda.getText());
             } else {
                 nodoActual = nodoActual.izq;
+
                 plantilla.setText(Integer.toString(nodoActual.nombre));
                 BtnIzquierda.setVisible(false);
                 BtnDerecha.setVisible(false);
                 BtnAcertijo.setVisible(true);
 
                 if (esHoja(nodoActual)) {
-                    verificarNodoLlegada(nodoActual);
+                    verificarNodoLlegada(nodoActual, BtnIzquierda.getText());
                 }
             }
         } else if (direccion.toLowerCase().equals("derecha")) {
             if (nodoActual.izq == null && nodoActual.der == null) {
 
-                verificarNodoLlegada(nodoActual);
+                verificarNodoLlegada(nodoActual, BtnDerecha.getText());
             } else {
                 nodoActual = nodoActual.der;
+                jLabel2.setText(Integer.toString(Altura - nodoActual.alturaArbol(nodoActual)) + ", " + BtnDerecha.getText());
                 plantilla.setText(Integer.toString(nodoActual.nombre));
                 BtnIzquierda.setVisible(false);
                 BtnDerecha.setVisible(false);
                 BtnAcertijo.setVisible(true);
 
                 if (esHoja(nodoActual)) {
-                    verificarNodoLlegada(nodoActual);
+                    verificarNodoLlegada(nodoActual, BtnDerecha.getText());
                 }
             }
         }
@@ -244,16 +257,19 @@ public class Juego extends javax.swing.JFrame {
         return nodo.izq == null && nodo.der == null;
     }
 
-    private void verificarNodoLlegada(Nodo nodo) {
+    private void verificarNodoLlegada(Nodo nodo, String direccion) {
         if (nodo.llegada) {
 
         } else {
-            JOptionPane.showMessageDialog(null, "¡Te moriste! Regresando al nodo anterior...");
+
             nodoActual = encontrarPadre(raiz, nodo);
+            jLabel2.setText(Integer.toString((Altura - nodoActual.alturaArbol(nodoActual)) + 1) + ", " + direccion);
             plantilla.setText(Integer.toString(nodoActual.nombre));
             BtnIzquierda.setVisible(false);
             BtnDerecha.setVisible(false);
             BtnAcertijo.setVisible(true);
+            JOptionPane.showMessageDialog(null, "¡Te moriste! Regresando al nodo anterior...");
+
         }
     }
 
@@ -318,6 +334,7 @@ public class Juego extends javax.swing.JFrame {
     private javax.swing.JButton BtnOpcion3;
     private javax.swing.JLabel TxtAcertijo;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel plantilla;
     // End of variables declaration//GEN-END:variables
 }
