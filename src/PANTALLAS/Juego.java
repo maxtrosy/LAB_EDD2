@@ -7,27 +7,28 @@ package PANTALLAS;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 import lab_edd2.Arbolinho;
 import lab_edd2.Nodo;
-import lab_edd2.Arbolinho;
-import lab_edd2.Nodo;
+
 /**
  *
  * @author maxtr
  */
 public class Juego extends javax.swing.JFrame {
 
+    private String respuestaCorrecta;
+
     /**
      * Creates new form Juego
      */
     public Juego() {
         initComponents();
-        Arbolinho arbol = new Arbolinho();
-        arbol.crearArbol();
-        arbol.imprimirArbol();
-        this.nodoActual = arbol.raiz;
-        mostrarNodo(nodoActual);
+
     }
 
     /**
@@ -63,12 +64,27 @@ public class Juego extends javax.swing.JFrame {
         getContentPane().add(TxtAcertijo, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 260, 1160, -1));
 
         BtnOpcion1.setText("jButton1");
+        BtnOpcion1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnOpcion1ActionPerformed(evt);
+            }
+        });
         getContentPane().add(BtnOpcion1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 630, -1, -1));
 
         BtnOpcion2.setText("jButton1");
+        BtnOpcion2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnOpcion2ActionPerformed(evt);
+            }
+        });
         getContentPane().add(BtnOpcion2, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 630, -1, -1));
 
         BtnOpcion3.setText("jButton1");
+        BtnOpcion3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnOpcion3ActionPerformed(evt);
+            }
+        });
         getContentPane().add(BtnOpcion3, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 630, -1, -1));
 
         BtnIzquierda.setText("jButton1");
@@ -92,11 +108,42 @@ public class Juego extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BtnAcertijoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAcertijoActionPerformed
+        try {
 
+            BufferedReader reader = new BufferedReader(new FileReader("src/Resources/Acertijos_DS.txt"));
+            List<String[]> listaAcertijos = new ArrayList<>();
+            String linea;
+
+            while ((linea = reader.readLine()) != null) {
+                String[] partes = linea.split(";");
+                listaAcertijos.add(partes);
+            }
+
+            Random random = new Random();
+            int indice = random.nextInt(listaAcertijos.size());
+            String[] acertijoSeleccionado = listaAcertijos.get(indice);
+
+            TxtAcertijo.setText(acertijoSeleccionado[1]);
+            BtnOpcion1.setText(acertijoSeleccionado[2]);
+            BtnOpcion2.setText(acertijoSeleccionado[3]);
+            BtnOpcion3.setText(acertijoSeleccionado[4]);
+
+            respuestaCorrecta = acertijoSeleccionado[5];
+
+            reader.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }//GEN-LAST:event_BtnAcertijoActionPerformed
-
-    private Nodo nodoActual;
-
+    private void verificarRespuesta(String respuestaSeleccionada) {
+        if (respuestaSeleccionada.equals(respuestaCorrecta)) {
+            JOptionPane.showMessageDialog(this, "¡Correcto!");
+        } else {
+            JOptionPane.showMessageDialog(this, "Incorrecto, intenta con otro acertijo.");
+           
+            BtnAcertijoActionPerformed(null);
+        }
+    }
 
     private void BtnIzquierdaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnIzquierdaActionPerformed
         // TODO add your handling code here:
@@ -105,6 +152,18 @@ public class Juego extends javax.swing.JFrame {
     private void BtnDerechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnDerechaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_BtnDerechaActionPerformed
+
+    private void BtnOpcion1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnOpcion1ActionPerformed
+        verificarRespuesta(BtnOpcion1.getText());
+    }//GEN-LAST:event_BtnOpcion1ActionPerformed
+
+    private void BtnOpcion2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnOpcion2ActionPerformed
+        verificarRespuesta(BtnOpcion2.getText());
+    }//GEN-LAST:event_BtnOpcion2ActionPerformed
+
+    private void BtnOpcion3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnOpcion3ActionPerformed
+        verificarRespuesta(BtnOpcion3.getText());
+    }//GEN-LAST:event_BtnOpcion3ActionPerformed
 
     /**
      * @param args the command line arguments
