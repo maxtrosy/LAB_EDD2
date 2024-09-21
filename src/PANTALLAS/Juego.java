@@ -343,6 +343,7 @@ public class Juego extends javax.swing.JFrame {
     private void verificarNodoLlegada(Nodo nodo, String direccion) {
         if (nodo.llegada) {
 
+            
         } else {
 
             nodoActual = encontrarPadre(raiz, nodo);
