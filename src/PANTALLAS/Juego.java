@@ -122,11 +122,11 @@ public class Juego extends javax.swing.JFrame {
 
         BtnAcertijo = new javax.swing.JButton();
         TxtAcertijo = new javax.swing.JLabel();
-        BtnOpcion1 = new javax.swing.JButton();
         BtnOpcion2 = new javax.swing.JButton();
+        BtnDerecha = new javax.swing.JButton();
         BtnOpcion3 = new javax.swing.JButton();
         BtnIzquierda = new javax.swing.JButton();
-        BtnDerecha = new javax.swing.JButton();
+        BtnOpcion1 = new javax.swing.JButton();
         plantilla = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
@@ -145,14 +145,6 @@ public class Juego extends javax.swing.JFrame {
         TxtAcertijo.setToolTipText("");
         getContentPane().add(TxtAcertijo, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 70, 950, 460));
 
-        BtnOpcion1.setText("jButton1");
-        BtnOpcion1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnOpcion1ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(BtnOpcion1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 590, 260, 90));
-
         BtnOpcion2.setText("jButton1");
         BtnOpcion2.setBorderPainted(false);
         BtnOpcion2.addActionListener(new java.awt.event.ActionListener() {
@@ -162,6 +154,16 @@ public class Juego extends javax.swing.JFrame {
         });
         getContentPane().add(BtnOpcion2, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 590, 260, 90));
 
+        BtnDerecha.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/Flecha_der.png"))); // NOI18N
+        BtnDerecha.setBorderPainted(false);
+        BtnDerecha.setContentAreaFilled(false);
+        BtnDerecha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnDerechaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(BtnDerecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 620, -1, -1));
+
         BtnOpcion3.setText("jButton1");
         BtnOpcion3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -170,21 +172,25 @@ public class Juego extends javax.swing.JFrame {
         });
         getContentPane().add(BtnOpcion3, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 593, 280, 90));
 
-        BtnIzquierda.setText("Izquierda");
+        BtnIzquierda.setBackground(new java.awt.Color(242, 242, 242));
+        BtnIzquierda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/Flecha_izq.png"))); // NOI18N
+        BtnIzquierda.setBorder(null);
+        BtnIzquierda.setBorderPainted(false);
+        BtnIzquierda.setContentAreaFilled(false);
         BtnIzquierda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnIzquierdaActionPerformed(evt);
             }
         });
-        getContentPane().add(BtnIzquierda, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 620, -1, -1));
+        getContentPane().add(BtnIzquierda, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 630, 100, 30));
 
-        BtnDerecha.setText("Derecha");
-        BtnDerecha.addActionListener(new java.awt.event.ActionListener() {
+        BtnOpcion1.setText("jButton1");
+        BtnOpcion1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnDerechaActionPerformed(evt);
+                BtnOpcion1ActionPerformed(evt);
             }
         });
-        getContentPane().add(BtnDerecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 620, -1, -1));
+        getContentPane().add(BtnOpcion1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 590, 260, 90));
 
         plantilla.setText("jLabel2");
         getContentPane().add(plantilla, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
