@@ -143,7 +143,7 @@ public class Juego extends javax.swing.JFrame {
 
         TxtAcertijo.setText("jLabel2");
         TxtAcertijo.setToolTipText("");
-        getContentPane().add(TxtAcertijo, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 280, 1150, 70));
+        getContentPane().add(TxtAcertijo, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 70, 950, 460));
 
         BtnOpcion1.setText("jButton1");
         BtnOpcion1.addActionListener(new java.awt.event.ActionListener() {
@@ -151,15 +151,16 @@ public class Juego extends javax.swing.JFrame {
                 BtnOpcion1ActionPerformed(evt);
             }
         });
-        getContentPane().add(BtnOpcion1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 630, -1, -1));
+        getContentPane().add(BtnOpcion1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 590, 260, 90));
 
         BtnOpcion2.setText("jButton1");
+        BtnOpcion2.setBorderPainted(false);
         BtnOpcion2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnOpcion2ActionPerformed(evt);
             }
         });
-        getContentPane().add(BtnOpcion2, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 630, -1, -1));
+        getContentPane().add(BtnOpcion2, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 590, 260, 90));
 
         BtnOpcion3.setText("jButton1");
         BtnOpcion3.addActionListener(new java.awt.event.ActionListener() {
@@ -167,7 +168,7 @@ public class Juego extends javax.swing.JFrame {
                 BtnOpcion3ActionPerformed(evt);
             }
         });
-        getContentPane().add(BtnOpcion3, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 630, -1, -1));
+        getContentPane().add(BtnOpcion3, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 593, 280, 90));
 
         BtnIzquierda.setText("Izquierda");
         BtnIzquierda.addActionListener(new java.awt.event.ActionListener() {
