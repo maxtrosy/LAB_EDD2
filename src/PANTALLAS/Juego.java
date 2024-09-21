@@ -36,6 +36,10 @@ public class Juego extends javax.swing.JFrame {
 
     private Map<Integer, String[]> datasetImagenes;
 
+    Arbolinho arbol = new Arbolinho();
+
+    static Arbolinho raizArbolihno;
+
     /**
      * Creates new form Juego
      */
@@ -55,7 +59,7 @@ public class Juego extends javax.swing.JFrame {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        Arbolinho arbol = new Arbolinho();
+
         arbol.crearArbol();
         nodoActual = arbol.raiz;
         raiz = arbol.raiz;
@@ -136,7 +140,9 @@ public class Juego extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(1280, 800));
         setUndecorated(true);
+        setPreferredSize(new java.awt.Dimension(1280, 800));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         BtnAcertijo.setBackground(new java.awt.Color(242, 242, 242));
@@ -197,7 +203,7 @@ public class Juego extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         jLabel2.setText("jLabel2");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 720, 250, -1));
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 1280, 800));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 1230, 800));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -271,13 +277,17 @@ public class Juego extends javax.swing.JFrame {
         // TODO add your handling code here:
         avanceHistoria(nodoActual, BtnIzquierda.getText());
         jLabel2.setText(Integer.toString(Altura - nodoActual.alturaArbol(nodoActual)) + ", " + BtnIzquierda.getText());
+        arbol.guardarAventura(BtnIzquierda.getText(), nodoActual);
+        System.out.println(arbol.recorrido);
 
     }//GEN-LAST:event_BtnIzquierdaActionPerformed
 
     private void BtnDerechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnDerechaActionPerformed
         // TODO add your handling code here:
         avanceHistoria(nodoActual, BtnDerecha.getText());
-        jLabel2.setText(Integer.toString(Altura - nodoActual.alturaArbol(nodoActual.der)) + ", " + BtnDerecha.getText());
+        jLabel2.setText(Integer.toString(Altura - nodoActual.alturaArbol(nodoActual)) + ", " + BtnDerecha.getText());
+        arbol.guardarAventura(BtnDerecha.getText(), nodoActual);
+        System.out.println(arbol.recorrido);
     }//GEN-LAST:event_BtnDerechaActionPerformed
 
     private void BtnOpcion1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnOpcion1ActionPerformed
@@ -326,7 +336,7 @@ public class Juego extends javax.swing.JFrame {
         }
     }
 
-    private boolean esHoja(Nodo nodo) {
+    public static boolean esHoja(Nodo nodo) {
         return nodo.izq == null && nodo.der == null;
     }
 
@@ -342,6 +352,7 @@ public class Juego extends javax.swing.JFrame {
             BtnIzquierda.setVisible(false);
             BtnDerecha.setVisible(false);
             BtnAcertijo.setVisible(true);
+            arbol.imprimirArbol();
             JOptionPane.showMessageDialog(null, "¡Te moriste! Regresando al nodo anterior...");
         }
     }
