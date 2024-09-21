@@ -328,6 +328,7 @@ public class Juego extends javax.swing.JFrame {
     private void verificarNodoLlegada(Nodo nodo) {
         if (nodo.llegada) {
 
+            
         } else {
             JOptionPane.showMessageDialog(null, "¡Te moriste! Regresando al nodo anterior...");
             nodoActual = encontrarPadre(raiz, nodo);
