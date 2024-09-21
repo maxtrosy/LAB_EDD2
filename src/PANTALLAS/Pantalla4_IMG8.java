@@ -4,6 +4,8 @@
  */
 package PANTALLAS;
 
+import javax.swing.JFrame;
+
 /**
  *
  * @author maxtr
@@ -15,6 +17,10 @@ public class Pantalla4_IMG8 extends javax.swing.JFrame {
      */
     public Pantalla4_IMG8() {
         initComponents();
+        transparenciaButton();
+        
+        setLocationRelativeTo(null);
+        
     }
 
     /**
@@ -31,9 +37,9 @@ public class Pantalla4_IMG8 extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        BtnIrJuego.setText("jButton1");
         BtnIrJuego.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnIrJuegoActionPerformed(evt);
@@ -41,7 +47,6 @@ public class Pantalla4_IMG8 extends javax.swing.JFrame {
         });
         getContentPane().add(BtnIrJuego, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 570, 330, 90));
 
-        BtnSalir.setText("jButton1");
         BtnSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnSalirActionPerformed(evt);
@@ -54,7 +59,16 @@ public class Pantalla4_IMG8 extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+public void transparenciaButton() {
+        BtnSalir.setOpaque(false);
+        BtnSalir.setContentAreaFilled(false);
+        BtnSalir.setBorderPainted(false);
 
+        BtnIrJuego.setOpaque(false);
+        BtnIrJuego.setContentAreaFilled(false);
+        BtnIrJuego.setBorderPainted(false);
+
+    }
     private void BtnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSalirActionPerformed
         this.dispose();
 

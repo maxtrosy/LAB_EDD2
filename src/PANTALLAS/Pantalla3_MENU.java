@@ -88,18 +88,19 @@ public class Pantalla3_MENU extends javax.swing.JFrame {
                 ImageIcon icon = new ImageIcon(imagenes[imageIndex]);
                 jLabel1.setIcon(icon);
                 imageIndex = (imageIndex + 1) % imagenes.length;
-                //if (imageIndex >= totalImages) {
-                //  timer.cancel();  // Detener el timer
-                //  avanzarPantalla();  // Método para avanzar a la nueva pantalla
-                // }
+
+                if (imageIndex == 0) {
+                    timer.cancel();  // Detener el timer
+                    avanzarPantalla();  // Método para avanzar a la nueva pantalla
+                }
             }
         }, 0, 15000);
 
     }//GEN-LAST:event_Bt_comienzajuegoActionPerformed
     private void avanzarPantalla() {
         this.setVisible(false);
-        // PantallaNueva nuevaPantalla = new PantallaNueva(); 
-        //nuevaPantalla.setVisible(true);
+        Pantalla4_IMG8 nuevaPantalla = new Pantalla4_IMG8();
+        nuevaPantalla.setVisible(true);
     }
 
     public static void main(String args[]) {
