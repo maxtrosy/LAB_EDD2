@@ -39,6 +39,9 @@ public class Juego extends javax.swing.JFrame {
      */
     public Juego() {
         initComponents();
+        jLabel1.revalidate();
+            jLabel1.repaint();
+        setLocationRelativeTo(null);
         setLocationRelativeTo(null);
         transparenciaButton();
         try {
@@ -95,9 +98,9 @@ public class Juego extends javax.swing.JFrame {
             if (BtnAcertijo.isVisible()) {
                 jLabel1.setIcon(new ImageIcon("src\\Resources\\ImagenesJuego\\" + imagen1));
             } else if (TxtAcertijo.isVisible()) {
-                jLabel1.setIcon(new ImageIcon("src\\Resources\\ImagenesJuego\\" + imagen2));
+                 jLabel1.setIcon(new ImageIcon("src\\Resources\\ImagenesJuego\\" + imagen2));
             } else if (BtnIzquierda.isVisible() && BtnDerecha.isVisible()) {
-                jLabel1.setIcon(new ImageIcon("src\\Resources\\ImagenesJuego\\" + imagen3));
+                 jLabel1.setIcon(new ImageIcon("src\\Resources\\ImagenesJuego\\" + imagen3));
             }
 
             jLabel1.revalidate();
@@ -132,7 +135,9 @@ public class Juego extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(1280, 800));
         setUndecorated(true);
+        setPreferredSize(new java.awt.Dimension(1280, 800));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         BtnAcertijo.setBackground(new java.awt.Color(242, 242, 242));
@@ -189,7 +194,7 @@ public class Juego extends javax.swing.JFrame {
 
         plantilla.setText("jLabel2");
         getContentPane().add(plantilla, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 1280, 800));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 1230, 800));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
