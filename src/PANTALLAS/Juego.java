@@ -319,10 +319,12 @@ public class Juego extends javax.swing.JFrame {
                 }
             }
         }
+        
     }
 
     private boolean esHoja(Nodo nodo) {
         return nodo.izq == null && nodo.der == null;
+        
     }
 
     private void verificarNodoLlegada(Nodo nodo) {
@@ -354,6 +356,7 @@ public class Juego extends javax.swing.JFrame {
             return left;
         }
 
+        
         return encontrarPadre(raiz.der, nodo);
     }
 
