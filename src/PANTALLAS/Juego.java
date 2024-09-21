@@ -41,6 +41,7 @@ public class Juego extends javax.swing.JFrame {
      */
     public Juego() {
         initComponents();
+        setLocationRelativeTo(null);
         transparenciaButton();
         try {
             File fontStyle = new File("src\\Fuente\\league-spartan\\LeagueSpartan-Bold.otf");
@@ -135,6 +136,7 @@ public class Juego extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         BtnAcertijo.setBackground(new java.awt.Color(242, 242, 242));
